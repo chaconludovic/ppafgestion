@@ -1,0 +1,177 @@
+[] - 2012-10-10 00:17:26,044 -  - HHH000393: The 1.2.131 version of H2 implements temporary table creation such that it commits current transaction; multi-table, bulk hql/jpaql will not work properly
+[] - 2012-10-10 00:17:26,548 -  - HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified, using LUCENE_CURRENT.
+[] - 2012-10-10 00:17:26,626 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Suividulieudedepot]; using defaults.
+[] - 2012-10-10 00:17:26,790 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Membreppaf]; using defaults.
+[] - 2012-10-10 00:17:26,802 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Rolemembre]; using defaults.
+[] - 2012-10-10 00:17:26,808 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Itemlieudestockage]; using defaults.
+[] - 2012-10-10 00:17:26,813 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Lieudestockage]; using defaults.
+[] - 2012-10-10 00:17:26,819 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Itemlieudedepot]; using defaults.
+[] - 2012-10-10 00:17:26,827 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Lieudedepot]; using defaults.
+[] - 2012-10-10 00:17:26,837 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Contact]; using defaults.
+[] - 2012-10-10 00:17:26,850 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Item]; using defaults.
+[] - 2012-10-10 00:17:26,856 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Role]; using defaults.
+[] - 2012-10-10 00:17:26,862 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Utilisateur]; using defaults.
+[] - 2012-10-10 00:17:26,874 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Suivicontact]; using defaults.
+[] - 2012-10-10 00:17:26,882 -  - HHH020003: Could not find a specific ehcache configuration for cache named [com.eldoraludo.ppafgestion.domain.Utilisateur.roles]; using defaults.
+[] - 2012-10-10 00:17:26,951 -  - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+[] - 2012-10-10 00:17:26,954 -  - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+[] - 2012-10-10 00:17:30,684 -  - Initializing filter 'fixResourcesExpirationFilter'
+[] - 2012-10-10 00:17:30,684 -  - Filter 'fixResourcesExpirationFilter' configured successfully
+[] - 2012-10-10 00:17:43,704 - anonymousUser - flow only duration:   767 ms - /PPAFGestion/app/home
+[] - 2012-10-10 00:17:45,360 - anonymousUser - flow only duration:    43 ms - /PPAFGestion/app/login
+[] - 2012-10-10 00:17:47,260 -  - Security verification for user 'admin'
+[] - 2012-10-10 00:17:47,362 - admin - flow only duration:    63 ms - /PPAFGestion/app/home
+[] - 2012-10-10 00:17:52,244 - admin - flow only duration:   830 ms - /PPAFGestion/app/utilisateur
+[] - 2012-10-10 00:17:53,055 - admin - 
+    /* select
+        count(*) 
+    from
+        Utilisateur as generatedAlias0 */ select
+            count(*) as col_0_0_ 
+        from
+            UTILISATEUR utilisateu0_ limit ?
+[] - 2012-10-10 00:17:53,108 - admin - 
+    /* select
+        generatedAlias0 
+    from
+        Utilisateur as generatedAlias0 */ select
+            utilisateu0_.ID as ID9_,
+            utilisateu0_.actif as actif9_,
+            utilisateu0_.CODEPOSTAL as CODEPOSTAL9_,
+            utilisateu0_.email as email9_,
+            utilisateu0_.INFOSUPPL as INFOSUPPL9_,
+            utilisateu0_.MEMBREPPAF_ID as MEMBREPPAF6_9_,
+            utilisateu0_."PASSWORD" as PASSWORD7_9_,
+            utilisateu0_.RUE as RUE9_,
+            utilisateu0_.login as login9_,
+            utilisateu0_.VILLE as VILLE9_ 
+        from
+            UTILISATEUR utilisateu0_ limit ?
+[] - 2012-10-10 00:17:53,163 - admin - flow only duration:   916 ms - /PPAFGestion/app/utilisateur
+	Active flow: utilisateur (/PPAFGestion/app/utilisateur?execution=e1s1)
+	Current State: utilisateurSelect
+	Current Transition: N/A
+[] - 2012-10-10 00:17:53,302 -  - fixing expires header for /PPAFGestion/app/javax.faces.resource/icons/tick.png
+[] - 2012-10-10 00:17:53,311 - admin - flow only duration:     8 ms - /PPAFGestion/app/javax.faces.resource/icons/tick.png
+[] - 2012-10-10 00:17:59,388 - admin - flow only duration:   210 ms - /PPAFGestion/app/utilisateur
+	eventSignaled: select
+	transitionExecuting: on=select to=checkIfAlreadyOpenFlow
+[] - 2012-10-10 00:17:59,681 - admin - 
+    /* load collection com.eldoraludo.ppafgestion.domain.Utilisateur.roles */ select
+        roles0_.UTILISATEUR_ID as UTILISAT1_9_1_,
+        roles0_.role_id as role2_1_,
+        role1_.ID as ID6_0_,
+        role1_.role_name as role2_6_0_ 
+    from
+        UTILISATEUR_ROLE roles0_ 
+    inner join
+        "ROLE" role1_ 
+            on roles0_.role_id=role1_.ID 
+    where
+        roles0_.UTILISATEUR_ID=?
+[] - 2012-10-10 00:17:59,708 - admin - flow only duration:   317 ms - /PPAFGestion/app/utilisateur
+	Active flow: utilisateur/edit (/PPAFGestion/app/utilisateur?execution=e1s2)
+	Current State: utilisateurEdit
+	Current Transition: N/A
+[] - 2012-10-10 00:17:59,841 -  - fixing expires header for /PPAFGestion/app/javax.faces.resource/icons/eye.png
+[] - 2012-10-10 00:17:59,846 - admin - flow only duration:     4 ms - /PPAFGestion/app/javax.faces.resource/icons/eye.png
+[] - 2012-10-10 00:17:59,859 -  - fixing expires header for /PPAFGestion/app/javax.faces.resource/icons/add.png
+[] - 2012-10-10 00:17:59,867 - admin - flow only duration:     7 ms - /PPAFGestion/app/javax.faces.resource/icons/add.png
+[] - 2012-10-10 00:18:05,382 - admin - 
+    /* select
+        generatedAlias0 
+    from
+        Membreppaf as generatedAlias0 */ select
+            membreppaf0_.ID as ID5_,
+            membreppaf0_.ACTIF as ACTIF5_,
+            membreppaf0_.CODEPOSTAL as CODEPOSTAL5_,
+            membreppaf0_.EMAIL as EMAIL5_,
+            membreppaf0_.INFOSUPPL as INFOSUPPL5_,
+            membreppaf0_.NOM as NOM5_,
+            membreppaf0_.NOTE as NOTE5_,
+            membreppaf0_.NUMEROTELEPHONE1 as NUMEROTE8_5_,
+            membreppaf0_.NUMEROTELEPHONE2 as NUMEROTE9_5_,
+            membreppaf0_.PRENOM as PRENOM5_,
+            membreppaf0_.ROLEMEMBRE_ID as ROLEMEMBRE11_5_,
+            membreppaf0_.RUE as RUE5_,
+            membreppaf0_.VILLE as VILLE5_ 
+        from
+            MEMBREPPAF membreppaf0_ limit ?
+[] - 2012-10-10 00:18:05,442 - admin - flow only duration:   169 ms - /PPAFGestion/app/utilisateur
+	Active flow: utilisateur/edit (/PPAFGestion/app/utilisateur?execution=e1s2)
+	Current State: utilisateurEdit
+	Current Transition: N/A
+[] - 2012-10-10 00:18:07,071 - admin - EXCEPTION unique id: 1124404870
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.webflow.execution.repository.FlowExecutionRestorationFailureException: A problem occurred restoring the flow execution with key 'e1s1'
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:894)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
+	at com.eldoraludo.ppafgestion.web.filter.FlowTimerFilter.doFilter(FlowTimerFilter.java:67)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:54)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:183)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at com.eldoraludo.ppafgestion.web.filter.ExceptionFilter.doFilter(ExceptionFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.primefaces.webapp.filter.FileUploadFilter.doFilter(FileUploadFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.springframework.web.filter.ShallowEtagHeaderFilter.doFilterInternal(ShallowEtagHeaderFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at net.sf.ehcache.constructs.web.filter.GzipFilter.doFilter(GzipFilter.java:95)
+	at net.sf.ehcache.constructs.web.filter.Filter.doFilter(Filter.java:86)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:928)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: org.springframework.webflow.execution.repository.FlowExecutionRestorationFailureException: A problem occurred restoring the flow execution with key 'e1s1'
+	at org.springframework.webflow.execution.repository.impl.DefaultFlowExecutionRepository.getFlowExecution(DefaultFlowExecutionRepository.java:113)
+	at org.springframework.webflow.executor.FlowExecutorImpl.resumeExecution(FlowExecutorImpl.java:168)
+	at org.springframework.webflow.mvc.servlet.FlowHandlerAdapter.handle(FlowHandlerAdapter.java:183)
+	at org.springframework.faces.webflow.JsfFlowHandlerAdapter.handle(JsfFlowHandlerAdapter.java:48)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:923)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	... 58 more
+Caused by: org.springframework.webflow.execution.repository.snapshot.SnapshotNotFoundException: No flow execution snapshot could be found with id '1'; perhaps the snapshot has been removed? 
+	at org.springframework.webflow.execution.repository.impl.SimpleFlowExecutionSnapshotGroup.getSnapshot(SimpleFlowExecutionSnapshotGroup.java:74)
+	at org.springframework.webflow.execution.repository.impl.DefaultFlowExecutionRepository.getFlowExecution(DefaultFlowExecutionRepository.java:111)
+	... 64 more
