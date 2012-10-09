@@ -7,7 +7,7 @@
  ! Template pack-jsf2-primefaces:bootstrap/generic/maven-celerio-plugin.boot.vm.xml
 -->
 <celerio xmlns="http://www.jaxio.com/schema/celerio" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.jaxio.com/schema/celerio ./celerio.xsd">
-	<configuration rootPackage="com.eldoraludo.ppafgestion" applicationName="PPAFGestion">
+	<configuration rootPackage="com.eldoraludo.demo" applicationName="testprojet3">
 		<!-- Which tables are used for generation -->
 		<tables>
 			<!-- <table include="false" pattern="*_AUDIT"/> -->
@@ -30,63 +30,53 @@
 		<conventions identifiableProperty="id" />
 	</configuration>
 
-	<entityConfigs>
-		<!-- Account demonstrates misc column configurations -->
-		<entityConfig tableName="ACCOUNT">
-			<columnConfigs>
-				<columnConfig columnName="login" min="4" fieldName="username" searchResult="true" />
-				<columnConfig columnName="email" searchResult="true" />
-				<columnConfig columnName="is_enabled" searchResult="true" />
-				<columnConfig columnName="civility" sharedEnumName="Civility" />
-				<columnConfig columnName="address_id" searchResult="true">
-					<manyToOneConfig var="homeAddress" />
-				</columnConfig>
-			</columnConfigs>
-		</entityConfig>
+    <entityConfigs>
 
-		<!-- Book demonstrates one-to-many relation -->
-		<entityConfig tableName="BOOK">
-			<columnConfigs>
-				<columnConfig columnName="account_id" associationDirection="BIDIRECTIONAL" />
-			</columnConfigs>
-		</entityConfig>
+        <!-- Account demonstrates misc column configurations -->
 
-		<!-- Document demonstrates one-to-many relation and upload/download -->
-		<entityConfig tableName="DOCUMENT">
-			<columnConfigs>
-				<columnConfig columnName="account_id" associationDirection="BIDIRECTIONAL" />
-			</columnConfigs>
-		</entityConfig>
+        <entityConfig tableName="utilisateur" >
 
-		<!-- Role demonstrates many-to-many relation and spring-security integration -->
-		<entityConfig tableName="ROLE">
-			<columnConfigs>
-				<columnConfig columnName="role_name" messageKey="true" />
-			</columnConfigs>
-		</entityConfig>
+            <columnConfigs>
 
-		<entityConfig tableName="ACCOUNT_ROLE" associationDirection="UNIDIRECTIONAL">
-			<columnConfigs>
-				<columnConfig columnName="role_id" inverse="true" />
-			</columnConfigs>
-		</entityConfig>
+                <columnConfig
+                    columnName="login"
+                    fieldName="username"
+                    min="4"
+                    searchResult="true" />
 
-		<!-- MoreTypesDemo demonstrates sub-packages and various types support such as joda time, BigDecimal etc. -->
-		<entityConfig tableName="MORE_TYPES_DEMO" subPackage="more">
-			<columnConfigs>
-				<columnConfig columnName="date_joda" mappedType="M_JODA_LOCALDATE" />
-				<columnConfig columnName="date_time_joda" mappedType="M_JODA_LOCALDATETIME" />
-			</columnConfigs>
-		</entityConfig>
-	</entityConfigs>
+                <columnConfig
+                    columnName="email"
+                    searchResult="true" />
 
-	<!-- Generate enums used by the entities above -->
-	<sharedEnumConfigs>
-		<sharedEnumConfig name="Civility" type="STRING">
-			<enumValues>
-				<enumValue value="MR" label="Mister" />
-				<enumValue value="MS" label="Miss" />
-			</enumValues>
-		</sharedEnumConfig>
-	</sharedEnumConfigs>
+                <columnConfig
+                    columnName="actif"
+                    searchResult="true" />
+            </columnConfigs>
+        </entityConfig>
+
+        <!-- Role demonstrates many-to-many relation and spring-security integration -->
+
+        <entityConfig tableName="role" >
+
+            <columnConfigs>
+
+                <columnConfig
+                    columnName="role_name"
+                    messageKey="true" />
+            </columnConfigs>
+        </entityConfig>
+
+        <entityConfig
+            associationDirection="UNIDIRECTIONAL"
+            tableName="utilisateur_role" >
+
+            <columnConfigs>
+
+                <columnConfig
+                    columnName="role_id"
+                    inverse="true" />
+            </columnConfigs>
+        </entityConfig>
+    </entityConfigs>
+
 </celerio>
