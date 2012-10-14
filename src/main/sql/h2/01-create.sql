@@ -2,29 +2,29 @@ DROP ALL OBJECTS;
 
 CREATE TABLE role (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
-	ROLE_NAME varchar(100) NOT NULL,
+	role_name varchar(255) NOT NULL,
 	PRIMARY KEY (id),
 	constraint role_unique_1 unique (role_name)
 );
 
 CREATE TABLE roleMembre (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
-	role varchar(100) NOT NULL,
+	role varchar(255) NOT NULL,
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE membrePPAF (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
-	nom varchar(100) NOT NULL,
-	prenom varchar(100) NOT NULL,
-	numeroTelephone1 varchar(100)  NULL,
-	numeroTelephone2 varchar(100)  NULL,
-	email varchar(100) NULL,
+	nom varchar(255) NOT NULL,
+	prenom varchar(255) NOT NULL,
+	numeroTelephone1 varchar(255)  NULL,
+	numeroTelephone2 varchar(255)  NULL,
+	email varchar(255) NULL,
 	actif bool NOT NULL,
 	note TEXT NULL,
-	rue varchar(100)  NULL,
-	ville varchar(100)  NULL,
-	codePostal varchar(100)  NULL,
+	rue varchar(255)  NULL,
+	ville varchar(255)  NULL,
+	codePostal varchar(255)  NULL,
 	infoSuppl TEXT  NULL,
 	roleMembre_id INTEGER(10) NOT NULL,
 	PRIMARY KEY (id),
@@ -34,15 +34,15 @@ CREATE TABLE membrePPAF (
 
 CREATE TABLE utilisateur (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
-	login varchar(100) NOT NULL,
-	password varchar(100) NOT NULL,
-	email varchar(100) NOT NULL, 
-	rue varchar(100) NULL,
-	ville varchar(100) NULL,
-	codePostal varchar(100) NULL,
+	login varchar(255) NOT NULL,
+	password varchar(255) NOT NULL,
+	email varchar(255) NOT NULL, 
+	rue varchar(255) NULL,
+	ville varchar(255) NULL,
+	codePostal varchar(255) NULL,
 	infoSuppl TEXT  NULL,
 	membrePPAF_id INTEGER(10) NULL,
-	actif bool NOT NULL,
+	enabled bool NOT NULL,
 	PRIMARY KEY (id),
 	CONSTRAINT FK_UTILISATEUR_MEMBREPPAF FOREIGN KEY (membrePPAF_id) REFERENCES membrePPAF (id)
  );
@@ -59,22 +59,24 @@ CREATE TABLE utilisateur (
 
 CREATE TABLE item (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
-	nom varchar(100) NOT NULL,
+	nom varchar(255) NOT NULL,
+	reference varchar(255) NOT NULL,
+	note TEXT NULL,
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE contact (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
-	nom varchar(100) NOT NULL,
-	prenom varchar(100) NOT NULL,
-	numeroTelephone1 varchar(100)  NULL,
-	numeroTelephone2 varchar(100)  NULL,
-	email varchar(100)  NULL,
+	nom varchar(255) NOT NULL,
+	prenom varchar(255) NOT NULL,
+	numeroTelephone1 varchar(255)  NULL,
+	numeroTelephone2 varchar(255)  NULL,
+	email varchar(255)  NULL,
 	actif bool NOT NULL,
 	note TEXT NULL,
-	rue varchar(100)  NULL,
-	ville varchar(100)  NULL,
-	codePostal varchar(100)  NULL,
+	rue varchar(255)  NULL,
+	ville varchar(255)  NULL,
+	codePostal varchar(255)  NULL,
 	infoSuppl TEXT  NULL,
 	PRIMARY KEY (id)
 );
@@ -93,13 +95,13 @@ CREATE TABLE suiviContact (
 
 CREATE TABLE lieuDeDepot (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
-	numeroTelephone1 varchar(100)  NULL,
-	numeroTelephone2 varchar(100)  NULL,
-	rue varchar(100)  NULL,
-	ville varchar(100)  NULL,
-	codePostal varchar(100)  NULL,
+	numeroTelephone1 varchar(255)  NULL,
+	numeroTelephone2 varchar(255)  NULL,
+	rue varchar(255)  NULL,
+	ville varchar(255)  NULL,
+	codePostal varchar(255)  NULL,
 	infoSuppl TEXT  NULL,
-	type varchar(100)  NULL,
+	type varchar(255)  NULL,
 	PRIMARY KEY (id)
 );
 
@@ -117,9 +119,9 @@ CREATE TABLE suiviDuLieuDeDepot (
 CREATE TABLE lieuDeStockage (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
 	membrePPAFResponsable_id INTEGER(10) NOT NULL,
-	rue varchar(100)  NULL,
-	ville varchar(100)  NULL,
-	codePostal varchar(100)  NULL,
+	rue varchar(255)  NULL,
+	ville varchar(255)  NULL,
+	codePostal varchar(255)  NULL,
 	infoSuppl TEXT  NULL,
 	note TEXT NULL,
 	PRIMARY KEY (id),
@@ -129,7 +131,8 @@ CREATE TABLE lieuDeStockage (
 CREATE TABLE itemLieuDeStockage (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
 	date DATE NOT NULL,
-	quantite INTEGER(10) NOT NULL,
+	quantiteEntre INTEGER(10) NOT NULL,
+	quantiteSortie INTEGER(10) NOT NULL,
 	item_id INTEGER(10) NOT NULL,
 	lieuDeStockage_id INTEGER(10) NOT NULL,
 	note TEXT NULL,
@@ -138,24 +141,40 @@ CREATE TABLE itemLieuDeStockage (
 	CONSTRAINT FK_ITEMLIEUDESTOCKAGE_ITEM FOREIGN KEY (item_id) REFERENCES item (id)
 );                
                   
-CREATE TABLE itemLieuDeDepot (
+CREATE TABLE vente (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
 	date DATE NOT NULL,
+	dateDEncaissement DATE NULL,
 	quantite INTEGER(10) NOT NULL,
-	prixUnitaire INTEGER(10) NOT NULL,
-	item_id INTEGER(10) NOT NULL,
-	contact_id INTEGER(10) NOT NULL,
-	lieuDeDepot_id INTEGER(10) NOT NULL,
-	membrePPAF_id INTEGER(10) NOT NULL,
+	prixTotal DOUBLE NOT NULL,
+	fraisDePort DOUBLE NULL,
+	numeroDeFacture varchar(255) NULL,
+	modeDeReglement varchar(255) NULL,
+	informationReglement varchar(255) NULL,
 	note TEXT NULL,
+	item_id INTEGER(10) NOT NULL,
+	contact_id INTEGER(10) NULL,
+	lieuDeDepot_id INTEGER(10) NULL,
+	membrePPAF_id INTEGER(10) NOT NULL,
 	PRIMARY KEY (id),
-	CONSTRAINT FK_ITEMLIEUDEDEPOT_ITEM FOREIGN KEY (item_id) REFERENCES item (id),
-	CONSTRAINT FK_ITEMLIEUDEDEPOT_CONTACT FOREIGN KEY (contact_id) REFERENCES contact (id),
-	CONSTRAINT FK_ITEMLIEUDEDEPOT_LIEUDEDEPOT FOREIGN KEY (lieuDeDepot_id) REFERENCES lieuDeDepot (id),
-	CONSTRAINT FK_ITEMLIEUDEDEPOT_MEMBREPPAF FOREIGN KEY (membrePPAF_id) REFERENCES membrePPAF (id)
+	CONSTRAINT FK_VENTE_ITEM FOREIGN KEY (item_id) REFERENCES item (id),
+	CONSTRAINT FK_VENTE_CONTACT FOREIGN KEY (contact_id) REFERENCES contact (id),
+	CONSTRAINT FK_VENTE_LIEUDEDEPOT FOREIGN KEY (lieuDeDepot_id) REFERENCES lieuDeDepot (id),
+	CONSTRAINT FK_VENTE_MEMBREPPAF FOREIGN KEY (membrePPAF_id) REFERENCES membrePPAF (id)
 );
 
-INSERT INTO utilisateur (id, login, password, email, actif) VALUES (1, 'admin', 'admin', 'admin@example.com', true);
+CREATE TABLE frais (
+	id INTEGER(10) NOT NULL AUTO_INCREMENT,
+	montant DOUBLE NOT NULL,
+	date DATE NOT NULL,
+	modeDeReglement varchar(255) NULL,
+	informationReglement varchar(255) NULL,
+	membrePPAF_id INTEGER(10) NOT NULL,
+	PRIMARY KEY (id),
+	CONSTRAINT FK_FRAIS_MEMBREPPAF FOREIGN KEY (membrePPAF_id) REFERENCES membrePPAF (id)
+);
+
+INSERT INTO utilisateur (id, login, password, email, enabled) VALUES (1, 'admin', 'admin', 'admin@example.com', true);
 
 INSERT INTO role (id,role_name) VALUES (1,'ROLE_ADMIN');
 INSERT INTO role (id,role_name) VALUES (2,'ROLE_USER');
