@@ -71,7 +71,7 @@ CREATE TABLE contact (
 	prenom varchar(255) NOT NULL,
 	numeroTelephone1 varchar(255)  NULL,
 	numeroTelephone2 varchar(255)  NULL,
-	email varchar(255)  NULL,
+	email varchar(255) NOT NULL,
 	actif bool NOT NULL,
 	note TEXT NULL,
 	rue varchar(255)  NULL,
@@ -95,6 +95,7 @@ CREATE TABLE suiviContact (
 
 CREATE TABLE lieuDeDepot (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
+	nom varchar(255) NOT NULL,
 	numeroTelephone1 varchar(255)  NULL,
 	numeroTelephone2 varchar(255)  NULL,
 	rue varchar(255)  NULL,
@@ -118,6 +119,7 @@ CREATE TABLE suiviDuLieuDeDepot (
                   
 CREATE TABLE lieuDeStockage (
 	id INTEGER(10) NOT NULL AUTO_INCREMENT,
+	nom varchar(255) NOT NULL,
 	membrePPAFResponsable_id INTEGER(10) NOT NULL,
 	rue varchar(255)  NULL,
 	ville varchar(255)  NULL,
