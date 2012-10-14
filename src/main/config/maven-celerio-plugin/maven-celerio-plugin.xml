@@ -59,6 +59,7 @@
             <columnConfigs>
 
                 <columnConfig
+                    businessKey="true"
                     columnName="login"
                     fieldName="username"
                     min="4"
@@ -96,7 +97,8 @@
             <columnConfigs>
 
                 <columnConfig
-                    columnName="ROLE_NAME"
+                    businessKey="true"
+                    columnName="role_name"
                     label="Nom du rôle"
                     messageKey="true" />
             </columnConfigs>
@@ -109,6 +111,7 @@
             <columnConfigs>
 
                 <columnConfig
+                    businessKey="true"
                     columnName="role"
                     messageKey="true" />
             </columnConfigs>
@@ -130,30 +133,19 @@
                     associationDirection="BIDIRECTIONAL"
                     columnName="role_id"
                     inverse="true" />
-
-                <columnConfig
-                    columnName="numeroTelephone1"
-                    label="numéro de téléphone 1" />
-
-                <columnConfig
-                    columnName="numeroTelephone2"
-                    label="numéro de téléphone 2" />
-
-                <columnConfig
-                    columnName="codePostal"
-                    label="code postal"
-                    searchResult="true" />
-
-                <columnConfig
-                    columnName="infoSuppl"
-                    label="information supplémentaire"
-                    searchResult="true" />
             </columnConfigs>
         </entityConfig>
 
         <entityConfig
             label="Item"
             tableName="item" >
+
+            <columnConfigs>
+
+                <columnConfig
+                    businessKey="true"
+                    columnName="nom" />
+            </columnConfigs>
         </entityConfig>
 
         <entityConfig
@@ -161,6 +153,18 @@
             tableName="contact" >
 
             <columnConfigs>
+
+                <columnConfig
+                    businessKey="true"
+                    columnName="nom" />
+
+                <columnConfig
+                    businessKey="true"
+                    columnName="prenom" />
+
+                <columnConfig
+                    businessKey="true"
+                    columnName="email" />
 
                 <columnConfig
                     columnName="numeroTelephone1"
@@ -191,7 +195,7 @@
                 <columnConfig
                     columnName="dateProchainAppel"
                     label="date de prochain appel"
-                    searchResult="true=" />
+                    searchResult="true" />
 
                 <columnConfig
                     associationDirection="BIDIRECTIONAL"
@@ -208,6 +212,10 @@
             tableName="lieuDeDepot" >
 
             <columnConfigs>
+
+                <columnConfig
+                    businessKey="true"
+                    columnName="nom" />
 
                 <columnConfig
                     columnName="numeroTelephone1"
@@ -250,6 +258,10 @@
             tableName="lieuDeStockage" >
 
             <columnConfigs>
+
+                <columnConfig
+                    businessKey="true"
+                    columnName="nom" />
 
                 <columnConfig
                     columnName="codePostal"
